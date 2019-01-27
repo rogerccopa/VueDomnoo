@@ -1,7 +1,9 @@
 <template>
   <div>
     <comp-header/>
-    <div>content</div>
+    <div>
+      <md-button>Hello</md-button>
+    </div>
     <comp-footer/>
   </div>
 </template>
