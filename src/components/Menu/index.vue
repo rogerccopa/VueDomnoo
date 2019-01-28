@@ -23,7 +23,8 @@ export default {
         { name: "burgers", active: false },
         { name: "salat", active: false },
         { name: "dessert", active: false }
-      ]
+      ],
+      products: []
     };
   },
   methods: {
@@ -32,6 +33,24 @@ export default {
         button.active = button.name == btnName;
       });
     }
+  },
+  created() {
+    // user VueResource (this.$http) to fetch products from our firebase db
+    this.$http
+      .get("products.json")
+      .then(response => response.json())
+      .then(data => {
+        let list = [];
+
+        for (let key in data) {
+          list.push({
+            ...data[key],
+            id: key
+          });
+        }
+
+        this.products = list;
+      });
   }
 };
 </script>
