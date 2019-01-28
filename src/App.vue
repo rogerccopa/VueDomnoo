@@ -2,7 +2,7 @@
   <div>
     <comp-header/>
     <div>
-      <md-button>Hello</md-button>
+      <comp-featured/>
     </div>
     <comp-footer/>
   </div>
@@ -11,11 +11,13 @@
 <script>
 import compHeader from "./components/Header-footer/Header.vue";
 import compFooter from "./components/Header-footer/Footer.vue";
+import compFeatured from "./components/Featured/index.vue";
 
 export default {
   components: {
     compHeader,
-    compFooter
+    compFooter,
+    compFeatured
   }
 };
 </script>
