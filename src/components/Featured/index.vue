@@ -8,7 +8,7 @@
               <div>{{slide.text}}</div>
             </div>
             <div class="image">
-              <div>{{slide.img}}</div>
+              <img :src="slide.img">
             </div>
           </div>
         </div>
