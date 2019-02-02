@@ -1,9 +1,10 @@
 <template>
   <div class="container menu_container">
-    <div class="top">
+    <div class="top" v-scroll-reveal>
       <h2>Menu</h2>
     </div>
-    <div class="buttons">
+    <!-- override default animation delay with: {delay:250} -->
+    <div class="buttons" v-scroll-reveal="{delay:250}">
       <md-button
         v-for="(button,index) in buttons"
         :key="index"
@@ -11,7 +12,7 @@
         @click="changeMenu(button.name)"
       >{{button.name}}</md-button>
     </div>
-    <div class="products_items">
+    <div class="products_items" v-scroll-reveal="{delay:500}">
       <md-card
         v-for="(product,index) in products"
         :key="index"
