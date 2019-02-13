@@ -50,7 +50,27 @@ export default {
       }
     },
     addEmail(email) {
-      // to implemented in the next video.
+      this.$http
+        .get(`users.json?orderBy=\"email\"&&equalTo=\"${email}\"`)
+        .then(response => {
+          if (Object.getOwnPropertyNames(response.data).length === 0) {
+            this.$http
+              .post("users.json", { email: this.email })
+              .then(response => {
+                this.success = "Thank You";
+              });
+          } else {
+            this.success = "Already on the list";
+          }
+        });
+
+      this.clearSuccess();
+    },
+    clearSuccess() {
+      setTimeout(() => {
+        this.email = "";
+        this.success = "";
+      }, 3000);
     }
   }
 };
